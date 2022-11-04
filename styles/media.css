@@ -1,0 +1,41 @@
+@media screen and (max-width: 1240px) {
+    ul{
+        font-size: 16px;
+    }
+    .main-header-text{
+        font-size: 28px;
+    }
+    .generete-btn{
+        font-size: 16px;
+    }
+    .example{
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 670px) {
+    ul{
+        font-size: 12px;
+    }
+    .main-header-text{
+        font-size: 21px;
+    }
+    .generete-btn{
+        font-size: 12px;
+    }
+    .example{
+        font-size: 14px;
+    }
+    .header-row{
+        flex-wrap: wrap;
+    }
+    textarea{
+        height: 300px;
+    }
+    .word-count{
+        font-size: 12px;
+    }
+    .main-header{
+        padding: 30px 0 5px;
+    }
+}
