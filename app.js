@@ -227,8 +227,14 @@ const essayEx =
 
 const getRandomExample = () => {
     const randomNum = Math.floor(Math.random() * essayEx.length);
-    const example = essayEx[randomNum];
-    essayEx.splice(randomNum, 1)
+    let example;
+    if (essayEx.length === 0){
+        example = "There is no essay topics more. Reload the page to see topics you already have done with"
+    }else{
+        example = essayEx[randomNum]
+        essayEx.splice(randomNum, 1)
+    }
+
     return example
 };
 
