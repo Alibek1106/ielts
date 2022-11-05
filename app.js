@@ -225,6 +225,20 @@ const essayEx =
 "Some people think that people should choose their job based on income in order to provide security for their family. Do you think money is an important factor when choosing a job? What other factors should be considered?"
 ];
 
+const feelingsList = 
+[
+    "https://wa.me/996771975341?text=I%20love%20you%2C%20Alishka%F0%9F%92%99",
+    "https://wa.me/996771975341?text=Thank%20you%20for%20being%20there%2C%20love",
+    "https://wa.me/996771975341?text=hate%20you",
+    "https://wa.me/996771975341?text=You%20are%20such%20a%20cutie",
+    "https://wa.me/996771975341?text=damn%2C%20you%20r%20so%20hot"
+]
+
+const feelingRandomNum = Math.floor(Math.random() * feelingsList.length);
+console.log(feelingRandomNum)
+
+const feelings = document.getElementById("feelings").href = feelingsList[feelingRandomNum];
+
 const getRandomExample = () => {
     const randomNum = Math.floor(Math.random() * essayEx.length);
     let example;
