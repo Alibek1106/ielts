@@ -222,8 +222,7 @@ const essayEx =
 "Getting promotion is one of the biggest drives for people to apply themselves and work hard in the modern work place. Why do you think people are so driven to get promotion? What other factors influence people to work hard?",
 "Bringing in foreign workers to fill positions that domestic workers are unwilling to do can cause problems in the local community and should therefore be stopped. Do what extent do you agree with this?",
 "Some people think that employers should ensure a supportive and pleasant work environment where each employee is respected and valued equally while others think employers should focus instead on providing better facilities and equipment. What is your opinion?",
-"Some people think that people should choose their job based on income in order to provide security for their family. Do you think money is an important factor when choosing a job? What other factors should be considered?",
-""
+"Some people think that people should choose their job based on income in order to provide security for their family. Do you think money is an important factor when choosing a job? What other factors should be considered?"
 ];
 
 const getRandomExample = () => {
