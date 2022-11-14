@@ -261,6 +261,7 @@ const createHTML = () => {
 
     createExample.innerHTML = getRandomExample();
     wordCounter.innerHTML = "word count: 0"
+    getGenereteBtn.innerHTML = "Tap to regenerate essay topic"
 
     const countWord = () => {
         let res = [];
