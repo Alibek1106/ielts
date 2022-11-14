@@ -234,105 +234,70 @@ const feelingsList =
     "https://wa.me/996771975341?text=damn%2C%20you%20r%20so%20hot"
 ]
 
-const feelingRandomNum = Math.floor(Math.random() * feelingsList.length);
-console.log(feelingRandomNum)
+const randomNum = (max) => {
+    return Math.floor(Math.random() * max)
+}
 
-const feelings = document.getElementById("feelings").href = feelingsList[feelingRandomNum];
+const feelings = document.getElementById("feelings").href = feelingsList[randomNum(feelingsList.length)];
 
 const getRandomExample = () => {
-    const randomNum = Math.floor(Math.random() * essayEx.length);
+    const randomEx = randomNum(essayEx.length)
     let example;
     if (essayEx.length === 0){
-        example = "There is no essay topics more. Reload the page to see topics you already have done with"
+        example = "There is no essay topics more. Reload the page, if you want to see the topics, you already have done with"
     }else{
-        example = essayEx[randomNum]
-        essayEx.splice(randomNum, 1)
+        example = essayEx[randomEx]
+        essayEx.splice(randomEx, 1)
     }
 
     return example
 };
 
+const createHTML = () => {
+    const newFilesWrapper = document.createElement('div')
+    const createExample = document.createElement("p");
+    const createTextArea = document.createElement("textarea");
+    const wordCounter = document.createElement("div")
+
+    createExample.innerHTML = getRandomExample();
+    wordCounter.innerHTML = "word count: 0"
+
+    const countWord = () => {
+        let res = [];
+        let str = createTextArea.value.replace(/[\t\n\r\.\?\!]/gm, " ").split(" ");
+        str.map((s) => {
+            let trimStr = s.trim();
+            if (trimStr.length > 0) {
+            res.push(trimStr);
+            }
+        });
+        wordCounter.innerText = "word count: " + res.length;
+    }
+
+    createTextArea.addEventListener("input", countWord);
+    
+
+    createExample.classList.add('example')
+    createTextArea.classList.add('text-area')
+    wordCounter.classList.add("word-count")
+
+    genereted.append(newFilesWrapper)
+    newFilesWrapper.appendChild(createExample)
+    newFilesWrapper.appendChild(wordCounter)
+    newFilesWrapper.appendChild(createTextArea)
+    console.log(essayEx.length)
+}
 
 const drawRandomExample = () => {
 
     main.style.display = "none";
 
     if (genereted.innerHTML === ""){
-        const newFilesWrapper = document.createElement('div')
-        const createExample = document.createElement("p");
-        const createTextArea = document.createElement("textarea");
-        const wordCounter = document.createElement("div")
-
-        createExample.innerHTML = getRandomExample();
-        wordCounter.innerHTML = "word count: 0"
-
-        createTextArea
-        .addEventListener("input", function countWord() {
-            let res = [];
-            let str = this.value.replace(/[\t\n\r\.\?\!]/gm, " ").split(" ");
-            str.map((s) => {
-                let trimStr = s.trim();
-                if (trimStr.length > 0) {
-                res.push(trimStr);
-                }
-          });
-          wordCounter.innerText = "word count: " + res.length;
-        });
-        
-
-        createExample.classList.add('example')
-        createTextArea.classList.add('text-area')
-        wordCounter.classList.add("word-count")
-    
-        genereted.append(newFilesWrapper)
-        newFilesWrapper.appendChild(createExample)
-        newFilesWrapper.appendChild(wordCounter)
-        newFilesWrapper.appendChild(createTextArea)
-        for (let i; i < essayEx; i++){
-            if (createExample.innerHTML === essayEx[i]){
-                essayEx.splice(i, 1)
-            }
-        }
-        console.log(essayEx.length)
+        createHTML()
     }else{
         genereted.replaceChildren()
         if (genereted.innerHTML === ""){
-            const newFilesWrapper = document.createElement('div')
-            const createExample = document.createElement("p");
-            const createTextArea = document.createElement("textarea");
-            const wordCounter = document.createElement("div")
-    
-            createExample.innerHTML = getRandomExample();
-            wordCounter.innerHTML = "word count: 0"
-    
-            createTextArea
-            .addEventListener("input", function countWord() {
-                let res = [];
-                let str = this.value.replace(/[\t\n\r\.\?\!]/gm, " ").split(" ");
-                str.map((s) => {
-                    let trimStr = s.trim();
-                    if (trimStr.length > 0) {
-                    res.push(trimStr);
-                    }
-              });
-              wordCounter.innerText = "word count: " + res.length;
-            });
-            
-    
-            createExample.classList.add('example')
-            createTextArea.classList.add('text-area')
-            wordCounter.classList.add("word-count")
-        
-            genereted.append(newFilesWrapper)
-            newFilesWrapper.appendChild(createExample)
-            newFilesWrapper.appendChild(wordCounter)
-            newFilesWrapper.appendChild(createTextArea)
-            for (let i; i < essayEx; i++){
-                if (createExample.innerHTML === essayEx[i]){
-                    essayEx.splice(i, 1)
-                }
-            }
-            console.log(essayEx.length)
+            createHTML()
         }
     }
 }
